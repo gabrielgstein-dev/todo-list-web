@@ -38,7 +38,8 @@
       "@service": ["src/service"],
       "@recoil": ["src/recoil"],
       "@recoil/*": ["src/recoil/*"],
-      "@hooks": ["src/hooks"]
+      "@hooks": ["src/hooks"],
+      "@models/*": ["src/models/*"],
     }
   },
   "include": ["vite.config.ts", "styled.d.ts", "**/*.ts", "**/*.tsx"],

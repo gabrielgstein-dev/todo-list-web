@@ -1,5 +1,5 @@
 import { RequestAuthUser } from '~/models/datacore/RequestAuthUser';
-import { callApiBaseAsync } from './_base';
+import { callApiBaseAsync } from '../_base';
 const endpoint = '/auth';
 
 export const loginApiService = async (data: RequestAuthUser) => {

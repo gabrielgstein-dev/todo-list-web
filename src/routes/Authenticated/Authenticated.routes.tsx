@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '~/framework/pages/Home/Home.page';
+import { HomePage } from '~/framework/pages';
 import PageBase from '~/framework/templates/PageBase/PageBase.template';
 
 export const AuthenticatedRoutes: React.FC = () => {

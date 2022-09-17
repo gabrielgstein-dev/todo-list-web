@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, VariantButtonEnum } from '@atoms';
-import { InputInLabel } from '@molecules';
+import { InputWithLabel } from '@molecules';
+import { useForm } from '@hooks';
+import { UserAuthentication } from '@models/dataview';
 
 import { FormLoginProps } from './FormLogin.interface';
 
@@ -11,42 +13,36 @@ export const FormLogin: React.FC<FormLoginProps> = ({
   action,
   buttonLoginText = 'Entrar',
 }) => {
-  const [form, setForm] = useState({
-    username: '',
-    password: '',
-  });
-  function handleChange(key: string, value: string) {
-    setForm({
-      ...form,
-      [key]: value,
-    });
-  }
+  const [values, setValues] = useForm<UserAuthentication>();
 
   const handleSubmit = (evt: React.SyntheticEvent) => {
     evt.stopPropagation();
     evt.preventDefault();
-    onSubmit(form);
+    onSubmit(values);
   };
+
   return (
     <S.FormContainer onSubmit={handleSubmit} action={action}>
       <S.InputFormContainer>
-        <InputInLabel
+        <InputWithLabel
           label='E-mail'
-          onChange={(value) => handleChange('username', value)}
+          name='email'
+          onChange={setValues}
           placeholder='Digite aqui'
-          value={form.username}
+          value={values.username}
         />
       </S.InputFormContainer>
 
       <S.InputFormContainer>
-        <InputInLabel
+        <InputWithLabel
           label='Senha'
-          onChange={(value) => handleChange('password', value)}
+          name='password'
+          onChange={setValues}
+          type='password'
           placeholder='Digite aqui'
-          value={form.password}
+          value={values.password}
         />
       </S.InputFormContainer>
-
       <S.ButtonContainer>
         <Button label={buttonLoginText} variant={VariantButtonEnum.PRIMARY} />
       </S.ButtonContainer>

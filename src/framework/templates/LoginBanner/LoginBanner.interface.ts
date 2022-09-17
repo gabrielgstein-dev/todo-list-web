@@ -1,6 +1,5 @@
 import { RequestAuthUser } from '~/models/datacore/RequestAuthUser';
-
-export interface LeftSideLoginProps {
+export interface LogginBannerTemplate {
   submitLoginForm: (value: RequestAuthUser) => void;
   buttonRegisterText?: string;
   buttonForgotPasswordText?: string;

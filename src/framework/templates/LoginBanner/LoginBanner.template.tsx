@@ -1,21 +1,18 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { FormLogin } from '@organisms';
-import { Button, Paragraph, Title, VariantButtonEnum } from '@atoms';
-import { LeftSideLoginProps } from './LoginBanner.interface';
+import { Button, VariantButtonEnum } from '@atoms';
+import { LogginBannerTemplate } from './LoginBanner.interface';
 
 import * as S from './LoginBanner.style';
 import { RequestAuthUser } from '~/models/datacore/RequestAuthUser';
 
-export const LoginBanner: React.FC<LeftSideLoginProps> = ({
+export const LoginBanner: React.FC<LogginBannerTemplate> = ({
   buttonRegisterText = 'Cadastrar-se',
-  buttonForgotPasswordText = 'Esqueci a senha',
   submitLoginForm,
 }) => {
   const handleClickRegisterButton = () => {
     console.log('Register');
-  };
-  const handleClickForgotPasswordButton = () => {
-    console.log('Forgot Password');
   };
 
   const handleSubmitForm = (values: RequestAuthUser) => {
@@ -31,11 +28,13 @@ export const LoginBanner: React.FC<LeftSideLoginProps> = ({
       </S.FormContainer>
 
       <S.ButtonContainer>
-        <Button
-          label={buttonRegisterText}
-          onClick={handleClickRegisterButton}
-          variant={VariantButtonEnum.SECONDARY}
-        />
+        <NavLink to={'/register'}>
+          <Button
+            label={buttonRegisterText}
+            onClick={handleClickRegisterButton}
+            variant={VariantButtonEnum.SECONDARY}
+          />{' '}
+        </NavLink>
       </S.ButtonContainer>
     </S.Container>
   );

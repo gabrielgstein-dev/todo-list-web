@@ -2,18 +2,14 @@ import { useSetRecoilState } from 'recoil';
 import { api } from '@service';
 
 import { auth, app } from '@recoil';
-import { RequestAuthUser } from '~/models/datacore/RequestAuthUser';
 
 export const useAuthentication = () => {
-  const setToken = useSetRecoilState(auth.atom.token);
   const setLoading = useSetRecoilState(app.appLoading);
 
-  const login = async (credentials: RequestAuthUser) => {
+  const getAll = async () => {
     try {
       setLoading(true);
-      const response = await api.auth.loginApiService(credentials);
-      localStorage.setItem('refreshToken', response.data.token);
-      setToken(response.data.token);
+      const response = await api.projects.getAll();
       setLoading(false);
     } catch (error) {
       console.error(error);
