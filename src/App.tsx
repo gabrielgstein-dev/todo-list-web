@@ -1,3 +1,6 @@
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 import { ThemeProvider } from 'styled-components';
 import { Gateway } from './routes';
 import { GlobalStyles, theme } from '@theme';
@@ -9,6 +12,7 @@ function App() {
   return (
     <RecoilRoot>
       <Router>
+        <ToastContainer />
         <GlobalStyles />
         <ThemeProvider theme={theme}>
           <Gateway />

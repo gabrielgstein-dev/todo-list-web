@@ -2,10 +2,14 @@ import React from 'react';
 
 import { RegisterBanner } from '@templates';
 import * as S from './Register.style';
+import { useAuthentication } from '@hooks';
+import { RequestRegisterUser } from '@models/datacore';
 
 export const RegisterPage: React.FC = () => {
-  const handleSubmitRegister = () => {
-    console.log('register');
+  const userHook = useAuthentication();
+
+  const handleSubmitRegister = (registerFields: RequestRegisterUser) => {
+    userHook.register(registerFields);
   };
   return (
     <S.Container>

@@ -3,10 +3,11 @@ import { Button, VariantButtonEnum } from '@atoms';
 import { InputWithLabel } from '@molecules';
 import { useForm } from '@hooks';
 
-import { RegiserFormProps, RegisterInterface } from './RegisterForm.interface';
+import { RegiserFormProps } from './RegisterForm.interface';
 
 import * as S from './RegisterForm.style';
 import { hasButtonDisabled } from './RegisterForm.logic';
+import { RequestRegisterUser } from '@models/datacore';
 
 export const RegisterForm: React.FC<RegiserFormProps> = ({
   onSubmit,
@@ -14,7 +15,7 @@ export const RegisterForm: React.FC<RegiserFormProps> = ({
   buttonText = 'Cadastrar',
 }) => {
   const [passwordConfirmationError, setPasswordConfirmationError] = useState('');
-  const [values, setValues] = useForm<RegisterInterface>();
+  const [values, setValues] = useForm<RequestRegisterUser>();
 
   const handleChangeInput = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordConfirmationError('');
@@ -38,10 +39,10 @@ export const RegisterForm: React.FC<RegiserFormProps> = ({
       <S.InputFormContainer>
         <InputWithLabel
           label='E-mail'
-          name='username'
+          name='email'
           onChange={setValues}
           placeholder='Ex: exemplo@exemplo.com'
-          value={values.username}
+          value={values.email}
         />
       </S.InputFormContainer>
 

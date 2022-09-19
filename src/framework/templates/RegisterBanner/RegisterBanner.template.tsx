@@ -3,10 +3,10 @@ import { RegisterForm } from '@organisms';
 import { RegisterBannerTemplate } from './RegisterBanner.interface';
 
 import * as S from './RegisterBanner.style';
-import { RequestAuthUser } from '~/models/datacore/RequestAuthUser';
+import { RequestRegisterUser } from '@models/datacore';
 
 export const RegisterBanner: React.FC<RegisterBannerTemplate> = ({ submitRegisterForm }) => {
-  const handleSubmitForm = (values: RequestAuthUser) => {
+  const handleSubmitForm = (values: RequestRegisterUser) => {
     submitRegisterForm(values);
   };
 

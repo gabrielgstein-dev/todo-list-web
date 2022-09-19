@@ -16,7 +16,7 @@ export const Checkbox = ({
   };
 
   return (
-    <label>
+    <S.LabelContainer>
       <S.CheckboxContainer>
         <S.HiddenCheckbox checked={checked} onChange={handleChange} {...props} />
         <S.StyledCheckbox checked={checked} interminateChecked={interminateChecked}>
@@ -27,6 +27,6 @@ export const Checkbox = ({
       </S.CheckboxContainer>
 
       {label}
-    </label>
+    </S.LabelContainer>
   );
 };

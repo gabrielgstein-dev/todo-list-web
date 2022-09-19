@@ -9,21 +9,16 @@ export const callApiBaseAsync = async (endpoint: RequestInfo, call: FetchRequest
 
   const requestHeader = mountHeaders({ tokenCustom, headers });
 
-  const result = await fetchRequest({
+  const { data } = await fetchRequest({
     endpoint: `${baseApi}${endpoint}`,
-    headers: {
-      'content-type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      cors: 'no-cors',
-      mode: 'no-cors',
-    },
+    headers: requestHeader,
     method,
     body: body ? JSON.stringify(body) : undefined,
   });
 
-  if (result && result?.status >= 300) {
-    throw new Error('default', result?.data.message.title || result?.data.message);
+  if (data?.statusCode >= 300) {
+    throw new Error('default', data.message);
   }
 
-  return result?.data;
+  return data;
 };

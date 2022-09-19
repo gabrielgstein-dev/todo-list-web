@@ -6,6 +6,11 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   display: none;
 `;
 
+export const LabelContainer = styled.label`
+  display: flex;
+  align-items: center;
+`;
+
 export const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;

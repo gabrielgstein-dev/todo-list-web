@@ -9,7 +9,7 @@ export const getVariant = (variant: VariantButtonType) => {
       v === VariantButtonEnum.TEXT
     ) {
       return css`
-        padding: 3% 0px;
+        padding: 10px 20px;
         font-size: 0.9vw;
       `;
     } else if (
@@ -34,7 +34,7 @@ export const getVariant = (variant: VariantButtonType) => {
           background-color: ${theme.palette.primary.base};
           color: ${theme.palette.light.tint};
           box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
-          border-radius: 20px;
+          border-radius: 4px;
           border: none;
 
           &:hover {
@@ -56,7 +56,7 @@ export const getVariant = (variant: VariantButtonType) => {
           background-color: ${theme.palette.light.tint};
           color: ${theme.palette.primary.base};
           box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
-          border-radius: 20px;
+          border-radius: 4px;
           border: 1px solid ${theme.palette.primary.base};
 
           &:disabled {

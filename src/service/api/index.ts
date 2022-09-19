@@ -1,2 +1,2 @@
-export * as auth from './auth/login.service';
+export * as auth from './auth';
 export * as projects from './projects';

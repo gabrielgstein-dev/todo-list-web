@@ -6,6 +6,7 @@ export type FetchRequest<T = unknown> = {
   stringifyBody?: boolean;
   returnBase64File?: boolean;
   tokenCustom?: string;
+  statusCode?: number;
 };
 
 export type BaseRequest<T = unknown, S = unknown> = {

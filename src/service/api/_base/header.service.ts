@@ -3,9 +3,10 @@ export interface CustomHeaders {
   headers?: Headers;
 }
 
-export const mountHeaders = ({ headers }: CustomHeaders): Headers => {
+export const mountHeaders = ({ headers, tokenCustom }: CustomHeaders): Headers => {
   const header = new Headers(headers);
 
+  header.append('Authorization', `Bearer ${tokenCustom}`);
   header.append('Accept', 'application/json');
   header.append('Content-Type', 'application/json');
   header.append('Access-Control-Allow-Origin', '*');

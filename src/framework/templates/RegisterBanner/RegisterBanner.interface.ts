@@ -1,6 +1,5 @@
-import { RequestAuthUser } from '~/models/datacore/RequestAuthUser';
-
+import { RequestRegisterUser } from '@models/datacore';
 export interface RegisterBannerTemplate {
-  submitRegisterForm: (value: RequestAuthUser) => void;
+  submitRegisterForm: (value: RequestRegisterUser) => void;
   buttonRegisterText?: string;
 }
